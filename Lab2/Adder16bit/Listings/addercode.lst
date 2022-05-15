@@ -1,0 +1,55 @@
+A51 MACRO ASSEMBLER  ADDERCODE                                                            01/22/2022 11:40:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\addercode.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE addercode.asm SET(SMALL) DEBUG PRINT(.\Listings\addercode.lst) OBJECT(.
+                      \Objects\addercode.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2     ORG 0H
+0000 020100            3     LJMP MAIN
+0100                   4     ORG 100H
+0100                   5     MAIN:
+0100 3130              6     CALL ADD16
+0102 80FE              7     HERE: SJMP HERE
+0130                   8     ORG 130H
+                       9     
+0130                  10     ADD16:
+                      11     
+0130 E571             12     MOV A, 71H
+0132 C3               13     CLR C
+0133 2573             14     ADD A, 73H
+0135 F576             15     MOV 76H, A
+0137 E570             16     MOV A, 70H
+0139 3572             17     ADDC A, 72H
+013B F575             18     MOV 75H, A
+013D E4               19     CLR A
+013E 4002             20     JC CARRY
+0140 8002             21     SJMP NEXT
+0142 7401             22     CARRY: MOV A, #1
+0144 2574             23     NEXT: ADD A,74H
+0146 F574             24     MOV 74H, A
+0148 22               25     RET
+                      26     END
+A51 MACRO ASSEMBLER  ADDERCODE                                                            01/22/2022 11:40:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD16. . . . . . .  C ADDR   0130H   A   
+CARRY. . . . . . .  C ADDR   0142H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+NEXT . . . . . . .  C ADDR   0144H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

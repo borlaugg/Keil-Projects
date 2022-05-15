@@ -1,0 +1,71 @@
+A51 MACRO ASSEMBLER  SRC                                                                  02/14/2022 00:11:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\SRC.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE SRC.asm SET(SMALL) DEBUG PRINT(.\Listings\SRC.lst) OBJECT(.\Objects\SRC
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00h
+0000 75301F            2     MOV 30H, #1fH
+0003 1107              3     ACALL HEX2BIN 
+0005 80FE              4     HERE: SJMP HERE
+                       5     
+0007                   6     HEX2BIN:        
+0007 8530F0            7             MOV B, 30H
+000A 74F0              8             MOV A, #0F0H
+000C 55F0              9             ANL A, B
+000E C4               10             SWAP A
+000F B40907           11             CJNE A, #09H, NOTEQ1
+0012 7930             12     LEQ1:MOV R1, #30H
+0014 29               13             ADD A, R1
+0015 F560             14             MOV 60H, A
+0017 8009             15             SJMP RES1
+0019 40F7             16     NOTEQ1:JC LEQ1
+001B 7940             17     GEQ1:MOV R1,#40H
+001D 9409             18             SUBB A,#09H
+001F 29               19             ADD A, R1
+0020 F560             20             MOV 60H, A
+0022 740F             21     RES1:MOV A, #0FH
+0024 55F0             22             ANL A, B
+0026 B40907           23             CJNE A, #09H, NOTEQ2
+0029 7930             24     LEQ2:MOV R1, #30H
+002B 29               25             ADD A, R1
+002C F561             26             MOV 61H, A
+002E 8009             27             SJMP RES2
+0030 40F7             28     NOTEQ2:JC LEQ2
+0032 7940             29     GEQ2:MOV R1,#40H
+0034 9409             30             SUBB A,#09H
+0036 29               31             ADD A, R1
+0037 F561             32             MOV 61H, A
+0039                  33     RES2:
+0039 22               34     RET
+                      35     
+                      36     END
+A51 MACRO ASSEMBLER  SRC                                                                  02/14/2022 00:11:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+GEQ1 . . . . . . .  C ADDR   001BH   A   
+GEQ2 . . . . . . .  C ADDR   0032H   A   
+HERE . . . . . . .  C ADDR   0005H   A   
+HEX2BIN. . . . . .  C ADDR   0007H   A   
+LEQ1 . . . . . . .  C ADDR   0012H   A   
+LEQ2 . . . . . . .  C ADDR   0029H   A   
+NOTEQ1 . . . . . .  C ADDR   0019H   A   
+NOTEQ2 . . . . . .  C ADDR   0030H   A   
+RES1 . . . . . . .  C ADDR   0022H   A   
+RES2 . . . . . . .  C ADDR   0039H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

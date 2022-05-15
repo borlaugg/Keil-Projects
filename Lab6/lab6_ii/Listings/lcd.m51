@@ -1,0 +1,76 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/10/2022  19:58:56  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\src.obj TO .\Objects\lcd PRINT (.\Listings\lcd.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\src.obj (SRC)
+
+
+LINK MAP OF MODULE:  .\Objects\lcd (SRC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0311H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\lcd (SRC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SRC
+  C:020CH         SYMBOL        AGAIN
+  D:00F0H         SYMBOL        B
+  C:030DH         SYMBOL        BACK
+  C:0300H         SYMBOL        DELAY_TS
+  C:0310H         SYMBOL        EXIT
+  C:0300H         SYMBOL        LOOP
+  C:0200H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  B:0088H.5       SYMBOL        TF0
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:030AH         SYMBOL        WAIT
+  C:0000H         LINE#         2
+  C:0200H         LINE#         6
+  C:0203H         LINE#         7
+  C:0206H         LINE#         8
+  C:0208H         LINE#         9
+  C:020BH         LINE#         10
+  C:020CH         LINE#         11
+  C:020FH         LINE#         12
+  C:0211H         LINE#         13
+  C:0213H         LINE#         14
+  C:0216H         LINE#         15
+  C:0218H         LINE#         16
+  C:021AH         LINE#         17
+  C:0300H         LINE#         21
+  C:0303H         LINE#         22
+  C:0305H         LINE#         23
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/10/2022  19:58:56  PAGE 2
+
+
+  C:0308H         LINE#         24
+  C:030AH         LINE#         25
+  C:030DH         LINE#         26
+  C:0310H         LINE#         27
+  -------         ENDMOD        SRC
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0030H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=785
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

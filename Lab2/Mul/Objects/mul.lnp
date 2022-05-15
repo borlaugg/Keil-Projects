@@ -1,0 +1,3 @@
+".\Objects\mulcode.obj" 
+TO ".\Objects\mul" 
+PRINT(".\Listings\mul.m51") RAMSIZE(256) 

@@ -1,0 +1,88 @@
+A51 MACRO ASSEMBLER  LAB4                                                                 02/03/2022 19:23:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\lab4.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE lab4.asm SET(SMALL) DEBUG PRINT(.\Listings\lab4.lst) OBJECT(.\Objects\l
+                      ab4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0
+0000 A950              2     MAIN:MOV R1, 50H
+0002 11C8              3             ACALL DISPLAY
+0004 A951              4             MOV R1, 51H
+0006 11C8              5             ACALL DISPLAY
+0008 A952              6             MOV R1, 52H
+000A 11C8              7             ACALL DISPLAY
+000C A953              8             MOV R1, 53H
+000E 11C8              9             ACALL DISPLAY
+0010 80EE             10             SJMP MAIN
+                      11     
+00C8                  12     ORG 200
+00C8 74F0             13     DISPLAY: MOV A, #0F0H
+00CA 59               14             ANL A, R1
+00CB F590             15             MOV P1, A
+00CD 11E8             16             ACALL DELAY_200ms
+00CF 740F             17             MOV A, #0FH
+00D1 59               18             ANL A, R1
+00D2 C4               19             SWAP A
+00D3 F590             20             MOV P1, A
+00D5 11E8             21             ACALL DELAY_200ms
+00D7 7590FF           22             MOV P1, #0FFH
+00DA 11E8             23             ACALL DELAY_200ms
+00DC 22               24             RET
+                      25     
+00DD C000             26     DELAY_1s:PUSH 00h 
+00DF 7E64             27             MOV R6, #100 
+00E1 11F3             28             h4: ACALL DELAY_10ms 
+00E3 DEFC             29             DJNZ R6, h4
+00E5 D000             30             POP 00h 
+00E7 22               31             RET
+                      32     
+00E8 C000             33     DELAY_200ms: PUSH 00h
+00EA 7D14             34             MOV R5, #20
+00EC 11F3             35             h3: ACALL DELAY_10ms 
+00EE DDFC             36             DJNZ R5, h3 
+00F0 D000             37             POP 00h 
+00F2 22               38             RET
+                      39             
+00F3 C000             40     DELAY_10ms:PUSH 00h 
+00F5 7E28             41             MOV R6, #40 
+00F7 11FE             42             h2: ACALL delay_250us 
+00F9 DEFC             43             DJNZ R6, h2 
+00FB D000             44             POP 00h 
+00FD 22               45             RET
+                      46     
+00FE C000             47     delay_250us: push 00h 
+0100 7FF4             48             mov r7, #244 
+0102 DFFE             49             h1: djnz r7, h1 
+0104 D000             50             pop 00h 
+0106 22               51             ret
+                      52     
+                      53     END
+A51 MACRO ASSEMBLER  LAB4                                                                 02/03/2022 19:23:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY_10MS . . . .  C ADDR   00F3H   A   
+DELAY_1S . . . . .  C ADDR   00DDH   A   
+DELAY_200MS. . . .  C ADDR   00E8H   A   
+DELAY_250US. . . .  C ADDR   00FEH   A   
+DISPLAY. . . . . .  C ADDR   00C8H   A   
+H1 . . . . . . . .  C ADDR   0102H   A   
+H2 . . . . . . . .  C ADDR   00F7H   A   
+H3 . . . . . . . .  C ADDR   00ECH   A   
+H4 . . . . . . . .  C ADDR   00E1H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

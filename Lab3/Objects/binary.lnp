@@ -1,0 +1,3 @@
+".\Objects\bsearch.obj" 
+TO ".\Objects\binary" 
+PRINT(".\Listings\binary.m51") RAMSIZE(256) 

@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  BSEARCH                                                              01/28/2022 15:01:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\bsearch.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE bsearch.asm SET(SMALL) DEBUG PRINT(.\Listings\bsearch.lst) OBJECT(.\Obj
+                      ects\bsearch.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H
+                       2             
+0000 020100            3     LJMP MAIN
+                       4     
+0100                   5     ORG 100H
+                       6     
+0100                   7     MAIN:
+0100 3130              8     CALL SEARCH
+0102 80FE              9     HERE: SJMP HERE
+0130                  10     ORG 130H
+                      11     
+0130                  12     SEARCH:
+                      13     
+0130 75330E           14     MOV 33H, #0EH
+0133 AA31             15     MOV R2, 31H
+0135                  16     START: 
+0135 BA0002           17     CJNE R2, #0, CONTINUE
+0138 8026             18     SJMP BACK
+013A EA               19     CONTINUE:MOV A, R2
+013B 75F002           20     MOV B, #2
+013E 84               21     DIV AB
+013F FA               22     MOV R2, A
+0140 2530             23     ADD A, 30H
+0142 F8               24     MOV R0, A
+0143 E6               25     MOV A, @R0
+0144 B53204           26     CJNE A, 32H, CHECK
+0147 8833             27     MOV 33H, R0
+0149 8015             28     SJMP BACK
+014B 4004             29     CHECK: JC GREATER
+014D 8A31             30     LESSER: MOV 31H, R2
+014F 80E4             31     SJMP START
+0151 EA               32     GREATER:MOV A, R2
+0152 25F0             33     ADD A, B
+0154 9401             34     SUBB A, #1
+0156 F531             35     MOV 31H, A
+0158 FA               36     MOV R2, A
+0159 E8               37     MOV A, R0
+015A 2401             38     ADD A, #1
+015C F530             39     MOV 30H, A
+015E 80D5             40     SJMP START
+0160 22               41     BACK:RET
+                      42     
+                      43     END
+A51 MACRO ASSEMBLER  BSEARCH                                                              01/28/2022 15:01:43 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   0160H   A   
+CHECK. . . . . . .  C ADDR   014BH   A   
+CONTINUE . . . . .  C ADDR   013AH   A   
+GREATER. . . . . .  C ADDR   0151H   A   
+HERE . . . . . . .  C ADDR   0102H   A   
+LESSER . . . . . .  C ADDR   014DH   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+SEARCH . . . . . .  C ADDR   0130H   A   
+START. . . . . . .  C ADDR   0135H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

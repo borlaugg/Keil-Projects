@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  SRC                                                                  03/10/2022 19:58:56 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\src.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE src.asm SET(SMALL) DEBUG PRINT(.\Listings\src.lst) OBJECT(.\Objects\src
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h 
+0000 020200            2             ljmp main
+                       3     
+0200                   4     org 200h
+0200                   5             main:
+0200 753001            6             mov 30h, #01h
+0203 758901            7             mov tmod, #01h
+0206 7414              8             mov a, #14h
+0208 8530F0            9             mov b, 30h
+020B A4               10             mul ab
+020C 7590FF           11             again:mov p1, #0ffh
+020F F531             12             mov 31h, a
+0211 7100             13             acall delay_Ts
+0213 759000           14             mov p1, #00h
+0216 F531             15             mov 31h, a
+0218 7100             16             acall delay_Ts
+021A 80F0             17             sjmp again
+                      18             
+0300                  19     org 300h
+0300                  20             delay_Ts:
+0300 758C3C           21             loop:mov th0, #3ch
+0303 C28D             22             clr tf0
+0305 758AB0           23             mov tl0, #0b0h
+0308 D28C             24             setb tr0
+030A 308DFD           25             wait:jnb tf0, wait
+030D D531F0           26             back:djnz 31h, loop
+0310 22               27             exit:ret
+                      28     
+                      29     end
+A51 MACRO ASSEMBLER  SRC                                                                  03/10/2022 19:58:56 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   020CH   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   030DH   A   
+DELAY_TS . . . . .  C ADDR   0300H   A   
+EXIT . . . . . . .  C ADDR   0310H   A   
+LOOP . . . . . . .  C ADDR   0300H   A   
+MAIN . . . . . . .  C ADDR   0200H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WAIT . . . . . . .  C ADDR   030AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

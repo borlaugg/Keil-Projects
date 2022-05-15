@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  SRC                                                                  03/04/2022 13:26:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\src.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE src.asm SET(SMALL) DEBUG PRINT(.\Listings\src.lst) OBJECT(.\Objects\src
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 00h
+0000 020200            2     ljmp main
+                       3     
+000B                   4     org 000bh
+000B 7590FF            5             mov p1, #0ffh 
+000E 32                6             reti
+                       7             
+0200                   8     org 200h
+0200                   9             main:
+0200 75A882           10             mov ie, #82h
+0203 759000           11             mov p1, #00h
+0206 7100             12             acall timer_sub
+0208 80FE             13             here:sjmp here
+                      14             
+                      15             
+0300                  16     org 300h
+0300                  17             timer_sub:
+0300 758901           18             mov tmod, #01h
+0303 E530             19             mov a, 30h
+0305 F4               20             cpl a
+0306 F583             21             mov dph, a
+0308 E531             22             mov a, 31h
+030A F4               23             cpl a
+030B F582             24             mov dpl, a
+030D A3               25             inc dptr
+030E 85828A           26             mov tl0, dpl
+0311 85838C           27             mov th0, dph
+0314 C28D             28             clr tf0
+0316 D28C             29             setb tr0
+0318 22               30             ret
+                      31     
+                      32     end
+A51 MACRO ASSEMBLER  SRC                                                                  03/04/2022 13:26:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+HERE . . . . . . .  C ADDR   0208H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0200H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TIMER_SUB. . . . .  C ADDR   0300H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
